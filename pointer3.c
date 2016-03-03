@@ -12,7 +12,25 @@ char *my_strcpy(char *destination, const char *source) {
   return destination;
 }
 
+void int_copy(int *ptrA, int *ptrB, int nbr) {
+  while (nbr > 0) {
+    *ptrB++ = *ptrA++;
+    nbr--;
+  }
+}
+
 int main(void) {
+  int arrayA[6] = {1,2,3,4,5,6};
+  int arrayB[6];
+  int *parrayA;
+  int *parrayB;
+  parrayA = arrayA;
+  parrayB = arrayB;
+  int_copy(arrayA, arrayB, 6);
+  for (int i = 0; i < 6; i++) {
+    printf("Value: %d\n", *parrayB++);
+  };
+  int_copy(parrayA, parrayB, 6);
   char *pa; // pointer to char
   char *pb; // another pointer to char
   puts(strA); // show string A
